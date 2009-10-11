@@ -17,7 +17,7 @@ module FilterHacks
       if filter
         current_options = filter.instance_variable_get('@options')
         options.each_key do |k|
-          actions = options[k].to_a.map! { |o| o.to_s }
+          actions = [options[k]].flatten.map! { |o| o.to_s }
           current_options[k].merge(actions)
         end
       end
